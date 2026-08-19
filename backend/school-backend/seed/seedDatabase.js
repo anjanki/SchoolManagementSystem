@@ -25,6 +25,13 @@ const connectDB = async () => {
 
 const seedDatabase = async () => {
   try {
+    const seedAdminPassword = process.env.SEED_ADMIN_PASSWORD;
+    const seedStudentPassword = process.env.SEED_STUDENT_PASSWORD;
+
+    if (!seedAdminPassword || !seedStudentPassword) {
+      throw new Error('SEED_ADMIN_PASSWORD and SEED_STUDENT_PASSWORD must be set before seeding');
+    }
+
     await connectDB();
 
     // Clear existing data
@@ -45,10 +52,10 @@ const seedDatabase = async () => {
       firstName: 'Admin',
       lastName: 'User',
       email: 'admin@school.com',
-      password: 'Admin@123',
+      password: seedAdminPassword,
       role: 'ADMIN'
     });
-    console.log('✓ Admin created: admin@school.com / Admin@123');
+    console.log('✓ Admin created: admin@school.com');
 
     // Create Sample Teachers
     const teachers = await Teacher.insertMany([
@@ -106,7 +113,7 @@ const seedDatabase = async () => {
         firstName: `Student${i}`,
         lastName: `User${i}`,
         email: `student${i}@school.com`,
-        password: 'Student@123',
+        password: seedStudentPassword,
         role: 'STUDENT'
       });
       studentUsers.push(user);
@@ -298,11 +305,7 @@ const seedDatabase = async () => {
     console.log('✓ Notices created');
 
     console.log('\n✅ Database seeded successfully!');
-    console.log('\n📝 Demo Credentials:');
-    console.log('   Admin Email: admin@school.com');
-    console.log('   Admin Password: Admin@123');
-    console.log('\n   Student Email: student1@school.com');
-    console.log('   Student Password: Student@123');
+    console.log('\n📝 Seeded accounts use the locally configured seed passwords.');
 
     process.exit(0);
   } catch (error) {

@@ -70,11 +70,11 @@ Open [http://localhost:4200](http://localhost:4200)
 
 **Admin Account:**
 - Email: `admin@school.com`
-- Password: `Admin@123`
+- Password: Use the locally configured seed password.
 
 **Student Account:**
 - Email: `student1@school.com`
-- Password: `Student@123`
+- Password: Use the locally configured seed password.
 
 ---
 
@@ -198,8 +198,8 @@ Open [http://localhost:4200](http://localhost:4200)
 Running `npm run seed` creates:
 
 **Users:**
-- 1 Admin: `admin@school.com` / `Admin@123`
-- 5 Students: `student1@school.com` to `student5@school.com` / `Student@123`
+- 1 Admin: `admin@school.com` / locally configured seed password
+- 5 Students: `student1@school.com` to `student5@school.com` / locally configured seed password
 
 **Other Data:**
 - 3 Teachers with profiles
@@ -284,7 +284,7 @@ src/app/
 ### Backend (Heroku)
 ```bash
 heroku create your-app-name
-heroku config:set MONGODB_URI=your_mongodb_uri JWT_SECRET=your_secret
+heroku config:set MONGODB_URI=<your-mongodb-uri> JWT_SECRET=<your-jwt-secret>
 git push heroku main
 ```
 

@@ -287,11 +287,14 @@ cp .env.example .env
 
 ```
 PORT=5000
-MONGODB_URI=mongodb://localhost:27017/school-management-system
-JWT_SECRET=your_secure_secret_key_here
+MONGODB_URI=<your-mongodb-connection-string>
+JWT_SECRET=<your-jwt-secret>
 JWT_EXPIRE=7d
 CLIENT_URL=http://localhost:4200
 NODE_ENV=development
+SEED_ADMIN_PASSWORD=<set-locally-for-seeding>
+SEED_STUDENT_PASSWORD=<set-locally-for-seeding>
+ADMISSION_DEFAULT_PASSWORD=<set-locally-for-admission-approval>
 ```
 
 ### MongoDB Setup
@@ -379,15 +382,15 @@ This will create:
 
 ---
 
-## 🔐 Demo Credentials
+## 🔐 Local Development Credentials
 
 ### Admin Login
 - **Email**: `admin@school.com`
-- **Password**: `Admin@123`
+- **Password**: Use the locally configured seed password.
 
 ### Student Login
 - **Email**: `student1@school.com`
-- **Password**: `Student@123`
+- **Password**: Use the locally configured seed password.
 
 ---
 
@@ -402,7 +405,7 @@ Content-Type: application/json
 
 {
   "email": "admin@school.com",
-  "password": "Admin@123"
+  "password": "<set-locally>"
 }
 
 Response:
@@ -900,7 +903,7 @@ heroku create your-app-name
 # Set environment variables
 heroku config:set \
   MONGODB_URI=your_mongodb_uri \
-  JWT_SECRET=your_secret \
+  JWT_SECRET=<your-jwt-secret> \
   NODE_ENV=production
 
 # Deploy

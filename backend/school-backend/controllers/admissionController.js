@@ -240,12 +240,19 @@ exports.approveAdmission = async (req, res) => {
     let student = await Student.findOne({ email: admission.email });
 
     if (!student) {
+      if (!process.env.ADMISSION_DEFAULT_PASSWORD) {
+        return res.status(500).json({
+          success: false,
+          message: 'Admission account password is not configured on the server'
+        });
+      }
+
       // Create user account
       const user = new User({
         firstName: admission.firstName,
         lastName: admission.lastName,
         email: admission.email,
-        password: 'SchoolDefault@123', // Temporary password, student should change it
+        password: process.env.ADMISSION_DEFAULT_PASSWORD,
         role: 'STUDENT',
         status: 'Active'
       });

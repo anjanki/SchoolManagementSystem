@@ -421,8 +421,8 @@ Staging:
   
 Production:
   NODE_ENV=production
-  MONGODB_URI=mongodb+srv://user:pass@cluster.mongodb.net/school-prod
-  JWT_SECRET=production-secret-key
+  MONGODB_URI=<your-mongodb-atlas-connection-string>
+  JWT_SECRET=<your-production-jwt-secret>
 ```
 
 ---
