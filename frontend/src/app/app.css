@@ -1,0 +1,449 @@
+/* =========================================================
+   SCHOOL MANAGEMENT SYSTEM
+   Main Application Styles
+   ========================================================= */
+
+
+/* ==================== GLOBAL ==================== */
+
+* {
+  box-sizing: border-box;
+}
+
+:host {
+  display: block;
+}
+
+body {
+  margin: 0;
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Arial,
+    sans-serif;
+
+  background: #f5f7fb;
+  color: #1e293b;
+}
+
+
+/* ==================== APP LAYOUT ==================== */
+
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+  background: #f5f7fb;
+}
+
+
+/* ==================== SIDEBAR ==================== */
+
+.sidebar {
+  width: 250px;
+  min-height: 100vh;
+
+  background: #172033;
+  color: white;
+
+  display: flex;
+  flex-direction: column;
+
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+
+  z-index: 100;
+}
+
+
+/* ==================== BRAND ==================== */
+
+.sidebar-brand {
+  height: 76px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 20px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.school-logo {
+  width: 42px;
+  height: 42px;
+
+  object-fit: contain;
+
+  background: white;
+
+  border-radius: 10px;
+
+  padding: 4px;
+}
+
+.brand-text {
+  margin-left: 12px;
+}
+
+.brand-text h2 {
+  margin: 0;
+
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.brand-text span {
+  display: block;
+
+  margin-top: 3px;
+
+  font-size: 11px;
+
+  color: #94a3b8;
+}
+
+
+/* ==================== NAVIGATION ==================== */
+
+.sidebar-nav {
+  flex: 1;
+
+  padding: 22px 14px;
+
+  overflow-y: auto;
+}
+
+.nav-section-title {
+  margin: 14px 10px 8px;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: 1px;
+
+  color: #64748b;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  width: 100%;
+
+  padding: 11px 12px;
+
+  margin-bottom: 4px;
+
+  border-radius: 8px;
+
+  color: #cbd5e1;
+
+  text-decoration: none;
+
+  font-size: 14px;
+
+  transition: all 0.2s ease;
+}
+
+.nav-item:hover {
+  background: rgba(255, 255, 255, 0.07);
+
+  color: white;
+}
+
+.nav-item.active {
+  background: #2563eb;
+
+  color: white;
+
+  box-shadow:
+    0 4px 12px rgba(37, 99, 235, 0.25);
+}
+
+.nav-icon {
+  width: 22px;
+
+  text-align: center;
+
+  font-size: 16px;
+}
+
+
+/* ==================== SIDEBAR BOTTOM ==================== */
+
+.sidebar-bottom {
+  padding: 14px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.logout:hover {
+  background: rgba(239, 68, 68, 0.15);
+
+  color: #fca5a5;
+}
+
+
+/* ==================== MAIN CONTENT ==================== */
+
+.main-content {
+  margin-left: 250px;
+
+  width: calc(100% - 250px);
+
+  min-height: 100vh;
+}
+
+
+/* ==================== TOP BAR ==================== */
+
+.topbar {
+  height: 76px;
+
+  background: white;
+
+  border-bottom: 1px solid #e5e7eb;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding: 0 30px;
+
+  position: sticky;
+
+  top: 0;
+
+  z-index: 50;
+}
+
+
+/* ==================== SEARCH ==================== */
+
+.search-box {
+  width: 360px;
+
+  height: 42px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  background: #f8fafc;
+
+  border: 1px solid #e2e8f0;
+
+  border-radius: 8px;
+
+  padding: 0 13px;
+}
+
+.search-icon {
+  font-size: 21px;
+
+  color: #64748b;
+}
+
+.search-box input {
+  border: none;
+
+  outline: none;
+
+  width: 100%;
+
+  background: transparent;
+
+  font-size: 13px;
+
+  color: #334155;
+}
+
+.search-box input::placeholder {
+  color: #94a3b8;
+}
+
+
+/* ==================== TOPBAR RIGHT ==================== */
+
+.topbar-right {
+  display: flex;
+
+  align-items: center;
+
+  gap: 20px;
+}
+
+.topbar-button {
+  position: relative;
+
+  border: none;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  font-size: 18px;
+}
+
+.notification-dot {
+  position: absolute;
+
+  top: -2px;
+
+  right: -2px;
+
+  width: 7px;
+
+  height: 7px;
+
+  background: #ef4444;
+
+  border-radius: 50%;
+
+  border: 1px solid white;
+}
+
+
+/* ==================== ADMIN ==================== */
+
+.admin-profile {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  cursor: pointer;
+}
+
+.admin-avatar {
+  width: 38px;
+
+  height: 38px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background: #2563eb;
+
+  color: white;
+
+  border-radius: 50%;
+
+  font-size: 12px;
+
+  font-weight: 700;
+}
+
+.admin-info {
+  display: flex;
+
+  flex-direction: column;
+}
+
+.admin-info strong {
+  font-size: 13px;
+
+  color: #1e293b;
+}
+
+.admin-info span {
+  font-size: 11px;
+
+  color: #94a3b8;
+
+  margin-top: 2px;
+}
+
+.profile-arrow {
+  color: #64748b;
+
+  margin-left: 3px;
+}
+
+
+/* ==================== MOBILE MENU ==================== */
+
+.menu-button {
+  display: none;
+
+  border: none;
+
+  background: transparent;
+
+  font-size: 22px;
+
+  cursor: pointer;
+}
+
+
+/* ==================== RESPONSIVE ==================== */
+
+@media (max-width: 800px) {
+
+  .sidebar {
+    width: 220px;
+  }
+
+  .main-content {
+    margin-left: 220px;
+
+    width: calc(100% - 220px);
+  }
+
+  .topbar {
+    padding: 0 18px;
+  }
+
+  .search-box {
+    width: 250px;
+  }
+}
+
+
+@media (max-width: 650px) {
+
+  .sidebar {
+    display: none;
+  }
+
+  .main-content {
+    margin-left: 0;
+
+    width: 100%;
+  }
+
+  .menu-button {
+    display: block;
+  }
+
+  .topbar {
+    gap: 15px;
+  }
+
+  .search-box {
+    flex: 1;
+
+    width: auto;
+  }
+
+  .admin-info,
+  .profile-arrow {
+    display: none;
+  }
+}

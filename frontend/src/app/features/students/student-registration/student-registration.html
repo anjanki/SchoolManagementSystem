@@ -1,0 +1,436 @@
+<div class="registration-page">
+
+  <!-- ==================== PAGE HEADER ==================== -->
+
+  <div class="page-header">
+
+    <div>
+      <h1>Student Registration</h1>
+
+      <p>
+        Register a new student in the school management system.
+      </p>
+    </div>
+
+  </div>
+
+
+  <!-- ==================== REGISTRATION CARD ==================== -->
+
+  <div class="registration-card">
+
+    <form
+      #studentForm="ngForm"
+      (ngSubmit)="onSubmit()"
+    >
+
+
+      <!-- ==================== PERSONAL INFORMATION ==================== -->
+
+      <div class="form-section">
+
+        <div class="section-header">
+
+          <h2>Personal Information</h2>
+
+          <p>
+            Enter the student's basic personal details.
+          </p>
+
+        </div>
+
+
+        <div class="form-grid">
+
+          <!-- First Name -->
+
+          <div class="form-group">
+
+            <label for="firstName">
+              First Name
+              <span>*</span>
+            </label>
+
+            <input
+              id="firstName"
+              type="text"
+              name="firstName"
+              [(ngModel)]="student.firstName"
+              placeholder="Enter first name"
+              required
+            />
+
+          </div>
+
+
+          <!-- Last Name -->
+
+          <div class="form-group">
+
+            <label for="lastName">
+              Last Name
+              <span>*</span>
+            </label>
+
+            <input
+              id="lastName"
+              type="text"
+              name="lastName"
+              [(ngModel)]="student.lastName"
+              placeholder="Enter last name"
+              required
+            />
+
+          </div>
+
+
+          <!-- Date of Birth -->
+
+          <div class="form-group">
+
+            <label for="dateOfBirth">
+              Date of Birth
+              <span>*</span>
+            </label>
+
+            <input
+              id="dateOfBirth"
+              type="date"
+              name="dateOfBirth"
+              [(ngModel)]="student.dateOfBirth"
+              required
+            />
+
+          </div>
+
+
+          <!-- Gender -->
+
+          <div class="form-group">
+
+            <label for="gender">
+              Gender
+              <span>*</span>
+            </label>
+
+            <select
+              id="gender"
+              name="gender"
+              [(ngModel)]="student.gender"
+              required
+            >
+
+              <option value="">
+                Select Gender
+              </option>
+
+              <option value="Male">
+                Male
+              </option>
+
+              <option value="Female">
+                Female
+              </option>
+
+              <option value="Other">
+                Other
+              </option>
+
+            </select>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- ==================== CONTACT INFORMATION ==================== -->
+
+      <div class="form-section">
+
+        <div class="section-header">
+
+          <h2>Contact Information</h2>
+
+          <p>
+            Enter the student's contact details.
+          </p>
+
+        </div>
+
+
+        <div class="form-grid">
+
+          <!-- Email -->
+
+          <div class="form-group">
+
+            <label for="email">
+              Email Address
+              <span>*</span>
+            </label>
+
+            <input
+              id="email"
+              type="email"
+              name="email"
+              [(ngModel)]="student.email"
+              placeholder="student@example.com"
+              required
+            />
+
+          </div>
+
+
+          <!-- Phone -->
+
+          <div class="form-group">
+
+            <label for="phone">
+              Phone Number
+              <span>*</span>
+            </label>
+
+            <input
+              id="phone"
+              type="tel"
+              name="phone"
+              [(ngModel)]="student.phone"
+              placeholder="Enter phone number"
+              maxlength="10"
+              required
+            />
+
+          </div>
+
+
+          <!-- Address -->
+
+          <div class="form-group full-width">
+
+            <label for="address">
+              Address
+              <span>*</span>
+            </label>
+
+            <textarea
+              id="address"
+              name="address"
+              [(ngModel)]="student.address"
+              placeholder="Enter complete address"
+              rows="3"
+              required
+            ></textarea>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- ==================== ACADEMIC INFORMATION ==================== -->
+
+      <div class="form-section">
+
+        <div class="section-header">
+
+          <h2>Academic Information</h2>
+
+          <p>
+            Enter the student's school and admission details.
+          </p>
+
+        </div>
+
+
+        <div class="form-grid">
+
+          <!-- Roll Number -->
+
+          <div class="form-group">
+
+            <label for="rollNumber">
+              Roll Number
+              <span>*</span>
+            </label>
+
+            <input
+              id="rollNumber"
+              type="text"
+              name="rollNumber"
+              [(ngModel)]="student.rollNumber"
+              placeholder="Enter roll number"
+              required
+            />
+
+          </div>
+
+
+          <!-- Class -->
+
+          <div class="form-group">
+
+            <label for="className">
+              Class
+              <span>*</span>
+            </label>
+
+            <select
+              id="className"
+              name="className"
+              [(ngModel)]="student.className"
+              required
+            >
+
+              <option value="">
+                Select Class
+              </option>
+
+              <option value="Class 1">
+                Class 1
+              </option>
+
+              <option value="Class 2">
+                Class 2
+              </option>
+
+              <option value="Class 3">
+                Class 3
+              </option>
+
+              <option value="Class 4">
+                Class 4
+              </option>
+
+              <option value="Class 5">
+                Class 5
+              </option>
+
+              <option value="Class 6">
+                Class 6
+              </option>
+
+              <option value="Class 7">
+                Class 7
+              </option>
+
+              <option value="Class 8">
+                Class 8
+              </option>
+
+              <option value="Class 9">
+                Class 9
+              </option>
+
+              <option value="Class 10">
+                Class 10
+              </option>
+
+              <option value="Class 11">
+                Class 11
+              </option>
+
+              <option value="Class 12">
+                Class 12
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <!-- Section -->
+
+          <div class="form-group">
+
+            <label for="section">
+              Section
+              <span>*</span>
+            </label>
+
+            <select
+              id="section"
+              name="section"
+              [(ngModel)]="student.section"
+              required
+            >
+
+              <option value="">
+                Select Section
+              </option>
+
+              <option value="A">
+                A
+              </option>
+
+              <option value="B">
+                B
+              </option>
+
+              <option value="C">
+                C
+              </option>
+
+              <option value="D">
+                D
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <!-- Admission Date -->
+
+          <div class="form-group">
+
+            <label for="admissionDate">
+              Admission Date
+              <span>*</span>
+            </label>
+
+            <input
+              id="admissionDate"
+              type="date"
+              name="admissionDate"
+              [(ngModel)]="student.admissionDate"
+              required
+            />
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- ==================== FORM ACTIONS ==================== -->
+
+      <div class="form-actions">
+
+        <button
+          type="button"
+          class="cancel-button"
+          (click)="onCancel()"
+        >
+          Cancel
+        </button>
+
+
+        <button
+          type="submit"
+          class="submit-button"
+          [disabled]="studentForm.invalid"
+        >
+          Register Student
+        </button>
+
+      </div>
+
+    </form>
+
+  </div>
+
+</div>

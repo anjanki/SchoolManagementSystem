@@ -1,0 +1,286 @@
+/* =========================================================
+   STUDENT REGISTRATION
+   ========================================================= */
+
+
+/* ==================== PAGE ==================== */
+
+.registration-page {
+  padding: 30px;
+  background: #f5f7fb;
+  min-height: calc(100vh - 76px);
+}
+
+
+/* ==================== PAGE HEADER ==================== */
+
+.page-header {
+  margin-bottom: 25px;
+}
+
+.page-header h1 {
+  margin: 0;
+
+  font-size: 26px;
+
+  color: #172033;
+}
+
+.page-header p {
+  margin: 7px 0 0;
+
+  color: #64748b;
+
+  font-size: 13px;
+}
+
+
+/* ==================== REGISTRATION CARD ==================== */
+
+.registration-card {
+  background: white;
+
+  border: 1px solid #e8edf3;
+
+  border-radius: 10px;
+
+  box-shadow:
+    0 2px 5px rgba(15, 23, 42, 0.02);
+
+  overflow: hidden;
+}
+
+
+/* ==================== FORM SECTION ==================== */
+
+.form-section {
+  padding: 25px;
+
+  border-bottom: 1px solid #edf0f4;
+}
+
+.section-header {
+  margin-bottom: 20px;
+}
+
+.section-header h2 {
+  margin: 0;
+
+  color: #172033;
+
+  font-size: 17px;
+}
+
+.section-header p {
+  margin: 5px 0 0;
+
+  color: #94a3b8;
+
+  font-size: 12px;
+}
+
+
+/* ==================== FORM GRID ==================== */
+
+.form-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 18px;
+}
+
+
+/* ==================== FORM GROUP ==================== */
+
+.form-group {
+  display: flex;
+
+  flex-direction: column;
+}
+
+.form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-group label {
+  margin-bottom: 7px;
+
+  color: #334155;
+
+  font-size: 12px;
+
+  font-weight: 600;
+}
+
+.form-group label span {
+  color: #ef4444;
+}
+
+
+/* ==================== INPUTS ==================== */
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+
+  border: 1px solid #dbe2ea;
+
+  border-radius: 7px;
+
+  background: white;
+
+  color: #334155;
+
+  font-family: inherit;
+
+  font-size: 13px;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+.form-group input,
+.form-group select {
+  height: 42px;
+
+  padding: 0 12px;
+}
+
+.form-group textarea {
+  padding: 11px 12px;
+
+  resize: vertical;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #94a3b8;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #2563eb;
+
+  box-shadow:
+    0 0 0 3px rgba(37, 99, 235, 0.08);
+}
+
+
+/* ==================== FORM ACTIONS ==================== */
+
+.form-actions {
+  display: flex;
+
+  justify-content: flex-end;
+
+  gap: 10px;
+
+  padding: 20px 25px;
+
+  background: #fafbfc;
+}
+
+
+/* ==================== CANCEL BUTTON ==================== */
+
+.cancel-button {
+  border: 1px solid #dbe2ea;
+
+  background: white;
+
+  color: #475569;
+
+  padding: 10px 18px;
+
+  border-radius: 7px;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.cancel-button:hover {
+  background: #f8fafc;
+}
+
+
+/* ==================== SUBMIT BUTTON ==================== */
+
+.submit-button {
+  border: none;
+
+  background: #2563eb;
+
+  color: white;
+
+  padding: 10px 18px;
+
+  border-radius: 7px;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: background 0.2s;
+}
+
+.submit-button:hover:not(:disabled) {
+  background: #1d4ed8;
+}
+
+.submit-button:disabled {
+  background: #93c5fd;
+
+  cursor: not-allowed;
+}
+
+
+/* ==================== RESPONSIVE ==================== */
+
+@media (max-width: 800px) {
+
+  .registration-page {
+    padding: 20px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-group.full-width {
+    grid-column: auto;
+  }
+}
+
+
+@media (max-width: 500px) {
+
+  .registration-page {
+    padding: 15px;
+  }
+
+  .form-section {
+    padding: 18px;
+  }
+
+  .form-actions {
+    padding: 18px;
+
+    flex-direction: column-reverse;
+  }
+
+  .cancel-button,
+  .submit-button {
+    width: 100%;
+  }
+}

@@ -1,0 +1,382 @@
+<section class="student-list-content">
+
+  <!-- ==================== PAGE HEADER ==================== -->
+
+  <div class="page-header">
+
+    <div>
+      <h1>Students</h1>
+
+      <p>
+        Manage all registered students in the school.
+      </p>
+    </div>
+
+    <a
+      routerLink="/students/register"
+      class="primary-button"
+    >
+      + Add Student
+    </a>
+
+  </div>
+
+
+  <!-- ==================== STUDENT CARD ==================== -->
+
+  <div class="content-card">
+
+    <!-- CARD HEADER -->
+
+    <div class="card-header">
+
+      <div>
+        <h2>All Students</h2>
+
+        <p>
+          List of registered students
+        </p>
+      </div>
+
+    </div>
+
+
+    <!-- ==================== TOOLBAR ==================== -->
+
+    <div class="table-toolbar">
+
+      <!-- SEARCH -->
+
+      <div class="table-search">
+
+        <span>⌕</span>
+
+        <input
+          type="text"
+          placeholder="Search students..."
+          [(ngModel)]="searchTerm"
+          (input)="onSearch()"
+        />
+
+      </div>
+
+
+      <!-- CLASS FILTER -->
+
+      <select
+        class="filter-select"
+        [(ngModel)]="selectedClass"
+        (change)="onClassChange()"
+      >
+
+        @for (className of classes; track className) {
+
+          <option [value]="className">
+            {{ className }}
+          </option>
+
+        }
+
+      </select>
+
+
+      <!-- STATUS FILTER -->
+
+      <select
+        class="filter-select"
+        [(ngModel)]="selectedStatus"
+        (change)="onStatusChange()"
+      >
+
+        <option value="All Status">
+          All Status
+        </option>
+
+        <option value="Active">
+          Active
+        </option>
+
+        <option value="Inactive">
+          Inactive
+        </option>
+
+      </select>
+
+
+      <!-- RESET -->
+
+      @if (
+        searchTerm ||
+        selectedClass !== 'All Classes' ||
+        selectedStatus !== 'All Status'
+      ) {
+
+        <button
+          type="button"
+          class="secondary-button"
+          (click)="resetFilters()"
+        >
+          Reset
+        </button>
+
+      }
+
+    </div>
+
+
+    <!-- ==================== TABLE ==================== -->
+
+    <div class="table-container">
+
+      <table>
+
+        <!-- TABLE HEADER -->
+
+        <thead>
+
+          <tr>
+
+            <th>ID</th>
+
+            <th>Student</th>
+
+            <th>Email</th>
+
+            <th>Class</th>
+
+            <th>Gender</th>
+
+            <th>Phone</th>
+
+            <th>Status</th>
+
+            <th>Actions</th>
+
+          </tr>
+
+        </thead>
+
+
+        <!-- TABLE BODY -->
+
+        <tbody>
+
+          @for (
+            student of paginatedStudents;
+            track student.id
+          ) {
+
+            <tr>
+
+              <!-- ID -->
+
+              <td>
+                #{{ student.id }}
+              </td>
+
+
+              <!-- STUDENT -->
+
+              <td>
+
+                <div class="student-info">
+
+                  <div class="student-avatar">
+                    {{ student.initials }}
+                  </div>
+
+                  <div>
+
+                    <strong>
+                      {{ student.name }}
+                    </strong>
+
+                    <span>
+                      Roll No: {{ student.rollNumber }}
+                    </span>
+
+                  </div>
+
+                </div>
+
+              </td>
+
+
+              <!-- EMAIL -->
+
+              <td>
+                {{ student.email }}
+              </td>
+
+
+              <!-- CLASS -->
+
+              <td>
+                {{ student.className }}
+              </td>
+
+
+              <!-- GENDER -->
+
+              <td>
+                {{ student.gender }}
+              </td>
+
+
+              <!-- PHONE -->
+
+              <td>
+                {{ student.phone }}
+              </td>
+
+
+              <!-- STATUS -->
+
+              <td>
+
+                <span
+                  class="status"
+                  [class.active]="student.status === 'Active'"
+                  [class.inactive]="student.status === 'Inactive'"
+                >
+                  {{ student.status }}
+                </span>
+
+              </td>
+
+
+              <!-- ACTIONS -->
+
+              <td>
+
+                <div class="action-buttons">
+
+                  <!-- EDIT -->
+
+                  <button
+                    type="button"
+                    class="action-button edit"
+                    title="Edit Student"
+                    (click)="editStudent(student)"
+                  >
+                    ✏️
+                  </button>
+
+
+                  <!-- DELETE -->
+
+                  <button
+                    type="button"
+                    class="action-button delete"
+                    title="Delete Student"
+                    (click)="deleteStudent(student.id)"
+                  >
+                    🗑️
+                  </button>
+
+                </div>
+
+              </td>
+
+            </tr>
+
+          }
+
+
+          <!-- NO STUDENTS FOUND -->
+
+          @if (paginatedStudents.length === 0) {
+
+            <tr>
+
+              <td
+                colspan="8"
+                class="no-data"
+              >
+
+                No students found.
+
+              </td>
+
+            </tr>
+
+          }
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+
+    <!-- ==================== PAGINATION ==================== -->
+
+    <div class="pagination">
+
+      <!-- RECORD COUNT -->
+
+      <span>
+
+        Showing
+        {{ startItem }}
+        to
+        {{ endItem }}
+        of
+        {{ filteredStudents.length }}
+        students
+
+      </span>
+
+
+      <!-- PAGINATION BUTTONS -->
+
+      <div class="pagination-buttons">
+
+        <!-- PREVIOUS -->
+
+        <button
+          type="button"
+          (click)="previousPage()"
+          [disabled]="currentPage === 1"
+          title="Previous Page"
+        >
+          ‹
+        </button>
+
+
+        <!-- PAGE NUMBERS -->
+
+        @for (
+          page of pageNumbers;
+          track page
+        ) {
+
+          <button
+            type="button"
+            [class.current-page]="currentPage === page"
+            (click)="goToPage(page)"
+          >
+            {{ page }}
+          </button>
+
+        }
+
+
+        <!-- NEXT -->
+
+        <button
+          type="button"
+          (click)="nextPage()"
+          [disabled]="currentPage === totalPages || totalPages === 0"
+          title="Next Page"
+        >
+          ›
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>

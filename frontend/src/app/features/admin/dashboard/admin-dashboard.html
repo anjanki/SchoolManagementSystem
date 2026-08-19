@@ -1,0 +1,168 @@
+<div class="admin-dashboard">
+  <!-- Sidebar -->
+  <aside class="admin-sidebar">
+    <div class="sidebar-brand">
+      <span class="logo-icon">🏫</span>
+      <div>
+        <h2>SchoolMS</h2>
+        <span>Admin Panel</span>
+      </div>
+    </div>
+
+    <nav class="admin-nav">
+      <p class="nav-title">MAIN</p>
+      <a class="nav-item active" (click)="navigateTo('dashboard')">
+        <span>📊</span> Dashboard
+      </a>
+      <a class="nav-item" (click)="navigateTo('students')">
+        <span>👨‍🎓</span> Students
+      </a>
+      <a class="nav-item" (click)="navigateTo('admissions')">
+        <span>📝</span> Admissions
+      </a>
+      <a class="nav-item" (click)="navigateTo('teachers')">
+        <span>👨‍🏫</span> Teachers
+      </a>
+      <a class="nav-item" (click)="navigateTo('attendance')">
+        <span>📅</span> Attendance
+      </a>
+      <a class="nav-item" (click)="navigateTo('results')">
+        <span>📖</span> Results
+      </a>
+      <a class="nav-item" (click)="navigateTo('fees')">
+        <span>💰</span> Fees
+      </a>
+      <a class="nav-item" (click)="navigateTo('notices')">
+        <span>📢</span> Notices
+      </a>
+
+      <p class="nav-title">SETTINGS</p>
+      <a class="nav-item logout" (click)="logout()">
+        <span>↪</span> Logout
+      </a>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <div class="admin-content">
+    <!-- Header -->
+    <div class="admin-header">
+      <h1>Dashboard</h1>
+      <div class="user-info">
+        <span>{{ currentUser?.firstName }} {{ currentUser?.lastName }}</span>
+      </div>
+    </div>
+
+    <!-- Loading State -->
+    <div *ngIf="loading" class="loading-container">
+      <div class="spinner"></div>
+      <p>Loading dashboard...</p>
+    </div>
+
+    <div *ngIf="!loading && errorMessage" class="loading-container">
+      <p>{{ errorMessage }}</p>
+      <button type="button" (click)="loadDashboardData()">Retry</button>
+    </div>
+
+    <!-- Dashboard Content -->
+    <div *ngIf="!loading && !errorMessage" class="dashboard-content">
+      <!-- KPI Cards -->
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-header">
+            <span class="icon">👨‍🎓</span>
+            <h3>Total Students</h3>
+          </div>
+          <div class="kpi-value">{{ stats.totalStudents }}</div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-header">
+            <span class="icon">👨‍🏫</span>
+            <h3>Total Teachers</h3>
+          </div>
+          <div class="kpi-value">{{ stats.totalTeachers }}</div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-header">
+            <span class="icon">⏳</span>
+            <h3>Pending Admissions</h3>
+          </div>
+          <div class="kpi-value pending">{{ stats.pendingAdmissions }}</div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-header">
+            <span class="icon">✅</span>
+            <h3>Approved Admissions</h3>
+          </div>
+          <div class="kpi-value success">{{ stats.approvedAdmissions }}</div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-header">
+            <span class="icon">📅</span>
+            <h3>Today's Attendance</h3>
+          </div>
+          <div class="kpi-value">{{ stats.attendancePercentage }}%</div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-header">
+            <span class="icon">💰</span>
+            <h3>Fee Collection</h3>
+          </div>
+          <div class="kpi-value">₹{{ stats.totalFeePaid }}</div>
+          <p class="kpi-subtext">Pending: ₹{{ stats.totalFeePending }}</p>
+        </div>
+      </div>
+
+      <!-- Charts Section -->
+      <div class="charts-section">
+        <div class="chart-card">
+          <h3>Students by Class</h3>
+          <div class="chart-placeholder">
+            <p>Chart will display here with live data from backend</p>
+            <ul>
+              <li *ngFor="let item of chartData.studentsByClass">
+                {{ item._id }}: {{ item.count }} students
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="chart-card">
+          <h3>Admission Status</h3>
+          <div class="chart-placeholder">
+            <p>Admission distribution</p>
+            <ul>
+              <li *ngFor="let item of chartData.admissionStatus">
+                {{ item._id }}: {{ item.count }} applications
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Actions -->
+      <div class="quick-actions">
+        <h3>Quick Actions</h3>
+        <div class="actions-grid">
+          <button class="action-btn" (click)="navigateTo('students')">
+            <span>➕</span> Add Student
+          </button>
+          <button class="action-btn" (click)="navigateTo('admissions')">
+            <span>📋</span> Review Admissions
+          </button>
+          <button class="action-btn" (click)="navigateTo('teachers')">
+            <span>➕</span> Add Teacher
+          </button>
+          <button class="action-btn" (click)="navigateTo('attendance')">
+            <span>✓</span> Mark Attendance
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,414 @@
+    <!-- ==================== PAGE CONTENT ==================== -->
+    <section class="dashboard-content">
+
+      <!-- Page Header -->
+      <div class="page-header">
+
+        <div>
+          <h1>Dashboard</h1>
+
+          <p>
+            Welcome back! Here's what's happening in your school today.
+          </p>
+        </div>
+
+       <button
+  class="primary-button"
+  routerLink="/students/register"
+>
+  + Add Student
+</button>
+
+      </div>
+
+
+      <!-- ==================== STATISTICS ==================== -->
+      <div class="stats-grid">
+
+        <!-- Students -->
+        <div class="stat-card">
+
+          <div class="stat-icon students-icon">
+            👨‍🎓
+          </div>
+
+          <div class="stat-details">
+            <span>Total Students</span>
+            <h2>120</h2>
+            <small class="positive">
+              ↑ 8.2% this month
+            </small>
+          </div>
+
+        </div>
+
+
+        <!-- Teachers -->
+        <div class="stat-card">
+
+          <div class="stat-icon teachers-icon">
+            👨‍🏫
+          </div>
+
+          <div class="stat-details">
+            <span>Total Teachers</span>
+            <h2>25</h2>
+            <small class="positive">
+              ↑ 4.5% this month
+            </small>
+          </div>
+
+        </div>
+
+
+        <!-- Classes -->
+        <div class="stat-card">
+
+          <div class="stat-icon classes-icon">
+            🏫
+          </div>
+
+          <div class="stat-details">
+            <span>Total Classes</span>
+            <h2>12</h2>
+            <small>
+              Academic year 2026
+            </small>
+          </div>
+
+        </div>
+
+
+        <!-- Attendance -->
+        <div class="stat-card">
+
+          <div class="stat-icon attendance-icon">
+            📅
+          </div>
+
+          <div class="stat-details">
+            <span>Today's Attendance</span>
+            <h2>94%</h2>
+            <small class="positive">
+              ↑ 2.1% from yesterday
+            </small>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- ==================== STUDENTS SECTION ==================== -->
+      <div class="content-card">
+
+        <!-- Card Header -->
+        <div class="card-header">
+
+          <div>
+            <h2>Recent Students</h2>
+
+            <p>
+              Recently registered students
+            </p>
+          </div>
+
+          <button class="secondary-button">
+            View All
+          </button>
+
+        </div>
+
+
+        <!-- Search / Filter -->
+        <div class="table-toolbar">
+
+          <div class="table-search">
+
+            <span>⌕</span>
+
+            <input
+              type="text"
+              placeholder="Search students..."
+            />
+
+          </div>
+
+          <select class="filter-select">
+            <option>All Classes</option>
+            <option>Class 10</option>
+            <option>Class 11</option>
+            <option>Class 12</option>
+          </select>
+
+          <select class="filter-select">
+            <option>All Status</option>
+            <option>Active</option>
+            <option>Inactive</option>
+          </select>
+
+        </div>
+
+
+        <!-- ==================== STUDENTS TABLE ==================== -->
+        <div class="table-container">
+
+          <table>
+
+            <thead>
+
+              <tr>
+
+                <th>ID</th>
+
+                <th>Student</th>
+
+                <th>Email</th>
+
+                <th>Class</th>
+
+                <th>Gender</th>
+
+                <th>Phone</th>
+
+                <th>Status</th>
+
+                <th>Actions</th>
+
+              </tr>
+
+            </thead>
+
+
+            <tbody>
+
+              <tr>
+
+                <td>#001</td>
+
+                <td>
+
+                  <div class="student-info">
+
+                    <div class="student-avatar">
+                      AK
+                    </div>
+
+                    <div>
+                      <strong>Anjan Kumar</strong>
+                      <span>Roll No: 101</span>
+                    </div>
+
+                  </div>
+
+                </td>
+
+                <td>anjan@example.com</td>
+
+                <td>Class 10</td>
+
+                <td>Male</td>
+
+                <td>6202239118</td>
+
+                <td>
+                  <span class="status active">
+                    Active
+                  </span>
+                </td>
+
+                <td>
+
+                  <div class="action-buttons">
+
+                    <button
+                      class="action-button edit"
+                      title="Edit Student"
+                    >
+                      ✏️
+                    </button>
+
+                    <button
+                      class="action-button delete"
+                      title="Delete Student"
+                    >
+                      🗑️
+                    </button>
+
+                  </div>
+
+                </td>
+
+              </tr>
+
+
+              <tr>
+
+                <td>#002</td>
+
+                <td>
+
+                  <div class="student-info">
+
+                    <div class="student-avatar">
+                      RG
+                    </div>
+
+                    <div>
+                      <strong>Rahul Gupta</strong>
+                      <span>Roll No: 102</span>
+                    </div>
+
+                  </div>
+
+                </td>
+
+                <td>rahul@example.com</td>
+
+                <td>Class 10</td>
+
+                <td>Male</td>
+
+                <td>9876543210</td>
+
+                <td>
+                  <span class="status active">
+                    Active
+                  </span>
+                </td>
+
+                <td>
+
+                  <div class="action-buttons">
+
+                    <button
+                      class="action-button edit"
+                      title="Edit Student"
+                    >
+                      ✏️
+                    </button>
+
+                    <button
+                      class="action-button delete"
+                      title="Delete Student"
+                    >
+                      🗑️
+                    </button>
+
+                  </div>
+
+                </td>
+
+              </tr>
+
+
+              <tr>
+
+                <td>#003</td>
+
+                <td>
+
+                  <div class="student-info">
+
+                    <div class="student-avatar">
+                      PS
+                    </div>
+
+                    <div>
+                      <strong>Priya Singh</strong>
+                      <span>Roll No: 103</span>
+                    </div>
+
+                  </div>
+
+                </td>
+
+                <td>priya@example.com</td>
+
+                <td>Class 9</td>
+
+                <td>Female</td>
+
+                <td>9123456780</td>
+
+                <td>
+                  <span class="status inactive">
+                    Inactive
+                  </span>
+                </td>
+
+                <td>
+
+                  <div class="action-buttons">
+
+                    <button
+                      class="action-button edit"
+                      title="Edit Student"
+                    >
+                      ✏️
+                    </button>
+
+                    <button
+                      class="action-button delete"
+                      title="Delete Student"
+                    >
+                      🗑️
+                    </button>
+
+                  </div>
+
+                </td>
+
+              </tr>
+
+            </tbody>
+
+          </table>
+
+        </div>
+
+
+        <!-- ==================== PAGINATION ==================== -->
+        <div class="pagination">
+
+          <span>
+            Showing 1 to 3 of 120 students
+          </span>
+
+          <div class="pagination-buttons">
+
+            <button disabled>
+              ‹
+            </button>
+
+            <button class="current-page">
+              1
+            </button>
+
+            <button>
+              2
+            </button>
+
+            <button>
+              3
+            </button>
+
+            <button>
+              ...
+            </button>
+
+            <button>
+              40
+            </button>
+
+            <button>
+              ›
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>

@@ -1,0 +1,448 @@
+/* =========================================================
+   STUDENT LIST
+   ========================================================= */
+
+.student-list-page {
+  padding: 30px;
+}
+
+
+/* ==================== PAGE HEADER ==================== */
+
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 25px;
+}
+
+.page-header h1 {
+  margin: 0;
+
+  font-size: 26px;
+
+  color: #172033;
+}
+
+.page-header p {
+  margin: 7px 0 0;
+
+  color: #64748b;
+
+  font-size: 13px;
+}
+
+
+/* ==================== BUTTON ==================== */
+
+.primary-button {
+  border: none;
+
+  background: #2563eb;
+
+  color: white;
+
+  padding: 10px 17px;
+
+  border-radius: 7px;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: background 0.2s;
+}
+
+.primary-button:hover {
+  background: #1d4ed8;
+}
+
+
+/* ==================== CONTENT CARD ==================== */
+
+.content-card {
+  background: white;
+
+  border: 1px solid #e8edf3;
+
+  border-radius: 10px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 2px 5px rgba(15, 23, 42, 0.02);
+}
+
+
+/* ==================== CARD HEADER ==================== */
+
+.card-header {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding: 20px 22px;
+
+  border-bottom: 1px solid #edf0f4;
+}
+
+.card-header h2 {
+  margin: 0;
+
+  font-size: 17px;
+
+  color: #172033;
+}
+
+.card-header p {
+  margin: 5px 0 0;
+
+  color: #94a3b8;
+
+  font-size: 12px;
+}
+
+
+/* ==================== TABLE TOOLBAR ==================== */
+
+.table-toolbar {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 15px 22px;
+
+  border-bottom: 1px solid #edf0f4;
+}
+
+.table-search {
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  height: 36px;
+
+  width: 250px;
+
+  border: 1px solid #e2e8f0;
+
+  border-radius: 6px;
+
+  padding: 0 10px;
+}
+
+.table-search span {
+  color: #94a3b8;
+}
+
+.table-search input {
+  width: 100%;
+
+  border: none;
+
+  outline: none;
+
+  font-size: 12px;
+}
+
+.filter-select {
+  height: 36px;
+
+  padding: 0 10px;
+
+  border: 1px solid #e2e8f0;
+
+  border-radius: 6px;
+
+  background: white;
+
+  color: #475569;
+
+  font-size: 12px;
+
+  outline: none;
+}
+
+
+/* ==================== TABLE ==================== */
+
+.table-container {
+  width: 100%;
+
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+
+  border-collapse: collapse;
+
+  min-width: 950px;
+}
+
+thead {
+  background: #f8fafc;
+}
+
+th {
+  padding: 13px 16px;
+
+  text-align: left;
+
+  color: #64748b;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.4px;
+
+  white-space: nowrap;
+}
+
+td {
+  padding: 14px 16px;
+
+  border-top: 1px solid #edf0f4;
+
+  color: #475569;
+
+  font-size: 12px;
+
+  white-space: nowrap;
+}
+
+tbody tr:hover {
+  background: #fafcff;
+}
+
+
+/* ==================== STUDENT INFO ==================== */
+
+.student-info {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+}
+
+.student-avatar {
+  width: 34px;
+
+  height: 34px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #e0edff;
+
+  color: #2563eb;
+
+  font-size: 10px;
+
+  font-weight: 700;
+}
+
+.student-info strong {
+  display: block;
+
+  color: #334155;
+
+  font-size: 12px;
+}
+
+.student-info span {
+  display: block;
+
+  margin-top: 2px;
+
+  color: #94a3b8;
+
+  font-size: 10px;
+}
+
+
+/* ==================== STATUS ==================== */
+
+.status {
+  display: inline-block;
+
+  padding: 5px 9px;
+
+  border-radius: 20px;
+
+  font-size: 10px;
+
+  font-weight: 700;
+}
+
+.status.active {
+  background: #dcfce7;
+
+  color: #15803d;
+}
+
+.status.inactive {
+  background: #fee2e2;
+
+  color: #b91c1c;
+}
+
+
+/* ==================== ACTION BUTTONS ==================== */
+
+.action-buttons {
+  display: flex;
+
+  gap: 6px;
+}
+
+.action-button {
+  width: 30px;
+
+  height: 30px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border: 1px solid #e2e8f0;
+
+  background: white;
+
+  border-radius: 5px;
+
+  cursor: pointer;
+
+  font-size: 12px;
+
+  transition: all 0.2s;
+}
+
+.action-button.edit:hover {
+  background: #eff6ff;
+
+  border-color: #93c5fd;
+}
+
+.action-button.delete:hover {
+  background: #fef2f2;
+
+  border-color: #fca5a5;
+}
+
+
+/* ==================== PAGINATION ==================== */
+
+.pagination {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding: 15px 22px;
+
+  border-top: 1px solid #edf0f4;
+}
+
+.pagination > span {
+  color: #94a3b8;
+
+  font-size: 11px;
+}
+
+.pagination-buttons {
+  display: flex;
+
+  gap: 4px;
+}
+
+.pagination-buttons button {
+  min-width: 30px;
+
+  height: 30px;
+
+  border: 1px solid #e2e8f0;
+
+  background: white;
+
+  border-radius: 5px;
+
+  color: #475569;
+
+  cursor: pointer;
+
+  font-size: 11px;
+}
+
+.pagination-buttons button:hover:not(:disabled) {
+  background: #f1f5f9;
+}
+
+.pagination-buttons .current-page {
+  background: #2563eb;
+
+  color: white;
+
+  border-color: #2563eb;
+}
+
+.pagination-buttons button:disabled {
+  color: #cbd5e1;
+
+  cursor: not-allowed;
+}
+
+
+/* ==================== RESPONSIVE ==================== */
+
+@media (max-width: 650px) {
+
+  .student-list-page {
+    padding: 18px;
+  }
+
+  .page-header {
+    align-items: flex-start;
+
+    gap: 15px;
+
+    flex-direction: column;
+  }
+
+  .table-toolbar {
+    flex-wrap: wrap;
+  }
+
+  .table-search {
+    width: 100%;
+  }
+
+  .pagination {
+    flex-direction: column;
+
+    gap: 12px;
+
+    align-items: flex-start;
+  }
+}

@@ -1,0 +1,74 @@
+<div class="login-container">
+  <div class="login-card">
+    <div class="login-header">
+      <div class="logo">
+        <span class="logo-icon">👨‍🎓</span>
+      </div>
+      <h1>SchoolMS</h1>
+      <p>Student Portal</p>
+    </div>
+
+    <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+      <!-- Email -->
+      <div class="form-group">
+        <label for="email">Email or Student ID</label>
+        <input
+          id="email"
+          type="text"
+          [(ngModel)]="email"
+          name="email"
+          placeholder="student@school.com"
+          required
+        />
+      </div>
+
+      <!-- Password -->
+      <div class="form-group">
+        <label for="password">Password</label>
+        <div class="password-input-group">
+          <input
+            id="password"
+            [type]="showPassword ? 'text' : 'password'"
+            [(ngModel)]="password"
+            name="password"
+            placeholder="Enter your password"
+            required
+          />
+          <button
+            type="button"
+            class="toggle-password"
+            (click)="togglePasswordVisibility()"
+          >
+            {{ showPassword ? '👁️' : '👁️‍🗨️' }}
+          </button>
+        </div>
+      </div>
+
+      <!-- Error Message -->
+      <div *ngIf="successMessage" class="success-message">
+        {{ successMessage }}
+      </div>
+
+      <div *ngIf="errorMessage" class="error-message">
+        {{ errorMessage }}
+      </div>
+
+      <!-- Submit Button -->
+      <button
+        type="submit"
+        class="submit-button"
+        [disabled]="loading || !loginForm.valid"
+      >
+        {{ loading ? 'Logging in...' : 'Login' }}
+      </button>
+    </form>
+
+    <div class="demo-info">
+      <p><strong>Demo Credentials:</strong></p>
+      <p>Email: student1@school.com</p>
+      <p>Password: Student@123</p>
+      <p><a routerLink="/register/student">Don't have an account? Register</a></p>
+      <p><a routerLink="/login">Choose another portal</a></p>
+    </div>
+  </div>
+</div>
